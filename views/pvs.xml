@@ -1,0 +1,119 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="pvs_list">
+            <field name="name">practicabusqueda list</field>
+            <field name="model">practicabusqueda.pvs</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="escuadron_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- model.name form view -->
+        <record id="pvs_view_form" model="ir.ui.view">
+            <field name="name">practicabusqueda.pvs.form</field>
+            <field name="model">practicabusqueda.pvs</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <!-- borrar y no solamente comentar la linea de abajo -->
+                        
+                        <button name="action_aprobar0" states="activo" string="Aprobar Operaciones" icon="fa-check" type="object" class="oe_highlight" />
+                        <button name="action_aprobar1" states="aprobar1" attrs="{'invisible':[('state','!=','aprobar2'),('state','!=','activo')]}" string="Aprobar Comandante" icon="fa-check" type="object" class="oe_highlight" />
+                        <button name="action_aprobar2" states="aprobar2" string="Aprobar Operaciones COAVNA" icon="fa-check" type="object" class="oe_highlight" />
+                        <button name="action_aprobar3" states="aprobar3" string="Aprobar Comandante COAVNA" icon="fa-check" type="object" class="oe_highlight" />
+                        <field name="state" widget="statusbar" invisible="0" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <!-- <div name="buttons" class="oe_right oe_button_box">
+                                <button class="oe_stat_button" type="action" icon="fa-clipboard" name="do_toggle_done" string="" context="{'search_default_user_id': user_id, 'default_user_id': user_id}" help="Other to-dos for this user">
+                                    <field string="To-dos" name="count" widget="statinfo"/>
+                                </button>
+                            </div> -->
+                            <group>
+                                <field name="escuadron_id" style="width: 80%" string="Escuadron:" options="{'no_create_edit': True}"/>
+                                <field name="name" style="width: 80%" string="Descripcion:"/>
+                            </group>
+                            <group>
+                                <field name="fecha_inicio" style="width: 30%" string="Fecha Inicio:"/>
+                                <field name="fecha_fin" style="width: 30%" string="Fecha Fin:"/>
+                            </group>
+                            <!-- CAMPOS RELATED -->
+                            <!-- <field name="prueba_relatedMo2"/>
+                            <field name="prueba2_relatedMo2"/> -->
+                            <!-- ################################################################ -->
+                            <!-- Detalle de los vuelos dentro de la cabecera -->
+                            <field name="pvs_detalle_ids"/>
+                            <!-- <tree editable="botton">
+                                    <field name="fecha"/>
+                                    <field name="hora"/>
+                                    <field name="aeronave_id"/>
+
+                                    <field name="pvs_pilotos_ids" widget="many2many_tags">
+                                        <tree editable="botton">
+                                            <field name="lastname"/>
+                                        </tree>
+                                    </field> -->
+                            <!-- 
+                                    <field name="pvs_ruta_ids" widget="many2many_tags">
+                                        <tree editable="botton">
+                                            
+                                        </tree>
+                                    </field> -->
+                            <!-- <field name="pvs_ruta_ids2"/> -->
+                            <!-- 
+                                    <field name="pvs_pivot_aeronave_mision_ids" widget="many2many_tags">
+                                        <tree editable="botton">
+                                            <field name="mision_id"/>
+                                        </tree>
+                                    </field>
+
+                                    <field name="ruta_pvs_pvs_detalle_ids" widget="many2many_tags" width="500" style="min-width: 500px">
+                                        <tree string="Caption" create="true" delete="true" edit="true">
+                                            <field name="ruta_id" width="500" style="min-width: 500px"/>
+
+                                            <field name="ruta2_id" width="500" style="min-width: 500px"/>
+
+                                        </tree>
+                                    </field> 
+
+                                </tree>
+                            </field>   -->
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="practicabusqueda_pvs_action_window">
+            <field name="name">Plan de Vuelo Semanal</field>
+            <field name="res_model">practicabusqueda.pvs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="AVIACION NAVAL" id="practicabusqueda.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="Plan de vuelo semanal" id="practicabusqueda_menu_1_list_pvs" parent="practicabusqueda_mantenimiento_menu_1" action="practicabusqueda_pvs_action_window" sequence="6"/>
+
+    </data>
+</odoo>

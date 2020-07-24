@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="misiones_list">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.misiones</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="aeronave_mision_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="misiones_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda.misiones.form</field>
+      <field name="model">practicabusqueda.misiones</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <!-- <field name="aeronave_mision_ids"/> -->
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="practicabusqueda_misiones_action_window">
+      <field name="name">misiones</field>
+      <field name="res_model">practicabusqueda.misiones</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="AVIACION NAVAL" id="practicabusqueda.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Misiones" id="practicabusqueda_menu_1_list_misiones" parent="practicabusqueda_mantenimiento_menu_1" action="practicabusqueda_misiones_action_window" sequence="3"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="historial_list">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.historial</field>
+      <field name="arch" type="xml">
+        <tree create="false" delete="false">
+          <field name="radiograma_seguro"/>
+          <field name="equipamento_adicional"/>
+          <field name="aeronave_id"/>
+          <field name="observacion_seguro"/>
+          <field name="write_uid"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="historial_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda.historial.form</field>
+      <field name="model">practicabusqueda.historial</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="radiograma_seguro"/>
+              <field name="observacion_seguro"/>
+              <field name="aeronave_id"/>
+
+
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="practicabusqueda_historial_action_window">
+      <field name="name">historials</field>
+      <field name="res_model">practicabusqueda.historial</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="AVIACION NAVAL" id="practicabusqueda.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Consulta/Reporte" id="practicabusqueda_historial_menu_1" parent="practicabusqueda.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Historial" id="practicabusqueda_menu_1_list_historial" parent="practicabusqueda_historial_menu_1" action="practicabusqueda_historial_action_window"/>
+
+  </data>
+</odoo>

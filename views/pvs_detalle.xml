@@ -1,0 +1,100 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="pvs_detalle_list">
+            <field name="name">practicabusqueda list</field>
+            <field name="model">practicabusqueda.pvs_detalle</field>
+            <field name="arch" type="xml">
+                <!-- ME DA ERROR AL PONER EL EDITABLE="BOTTON" -->
+                <tree>
+                    <field name="fecha"/>
+                    <field name="hora"/>
+                    <field name="aeronave_id"/>
+
+                    <field name="pvs_pilotos_ids" widget="many2many_tags">
+                        <tree editable="botton">
+                            <field name="lastname"/>
+                        </tree>
+                    </field>
+
+                    <!-- Este domain sirve para que no me traiga ningun registro al dar click, vista es un ONE2MANY y daria error al querer elejir un dato que ya a sido relacionado en otro plan de vuelo -->
+                    <field name="ruta_pvs_ids" widget="many2many_tags" domain="[('id', '=', '0')]" />
+
+                    <field name="pvs_pivot_aeronave_mision_ids" widget="many2many_tags">
+                        <tree editable="botton">
+                            <field name="mision_id"/>
+                        </tree>
+                    </field>
+                </tree>
+            </field>
+        </record>
+
+        <!-- model.name form view -->
+        <record id="pvs_detalle_view_form" model="ir.ui.view">
+            <field name="name">practicabusqueda.pvs_detalle.form</field>
+            <field name="model">practicabusqueda.pvs_detalle</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="hora"/>
+                            <field name="aeronave_id"/>
+
+                            <field name="pvs_pilotos_ids" widget="many2many_tags">
+                                <tree editable="botton">
+                                    <field name="lastname"/>
+                                </tree>
+                            </field>
+
+                            <field name="pvs_pivot_aeronave_mision_ids" widget="many2many_tags">
+                                <tree editable="botton">
+                                    <field name="mision_id"/>
+                                </tree>
+                            </field>
+
+
+                        </group>
+                        <field name="ruta_pvs_ids" width="5" style="min-width: 5px">
+                            <tree string="Caption" create="true" delete="true" editable="botton">
+                                <field name="ruta_id" width="40" style="min-width: 40px"/>
+
+                                <field name="ruta2_id" mode="tree" width="400" style="min-width: 40px"/>
+
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="practicabusqueda_pvs_detalle_action_window">
+            <field name="name">Plan de Vuelo Semanal</field>
+            <field name="res_model">practicabusqueda.pvs_detalle</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="AVIACION NAVAL" id="practicabusqueda.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="Plan de vuelo semanal Detalle" id="practicabusqueda_menu_1_list_pvs_detalle" parent="practicabusqueda_mantenimiento_menu_1" action="practicabusqueda_pvs_detalle_action_window" sequence="12"/>
+
+    </data>
+</odoo>

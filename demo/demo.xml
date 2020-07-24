@@ -1,0 +1,84 @@
+<odoo>
+  <data>
+    <!-- PILOTOS -->
+    <record id="pilotos01" model="practicabusqueda.pilotos">
+      <field name="name">PABLO</field>
+      <field name="lastname">NARVAEZ</field>
+      <field name="cedula">0925849581</field>
+    </record>
+    <record id="pilotos02" model="practicabusqueda.pilotos">
+      <field name="name">JUAN</field>
+      <field name="lastname">ROMO</field>
+      <field name="cedula">0925849582</field>
+    </record>
+    <record id="pilotos03" model="practicabusqueda.pilotos">
+      <field name="name">CRISTHIAN</field>
+      <field name="lastname">BOHORQUEZ</field>
+      <field name="cedula">0925849583</field>
+    </record>
+    <record id="pilotos04" model="practicabusqueda.pilotos">
+      <field name="name">ALEXIS</field>
+      <field name="lastname">CHICA</field>
+      <field name="cedula">0925849584</field>
+    </record>
+    <record id="pilotos05" model="practicabusqueda.pilotos">
+      <field name="name">ANDRES</field>
+      <field name="lastname">ANDA</field>
+      <field name="cedula">0925849585</field>
+    </record>
+    <record id="pilotos06" model="practicabusqueda.pilotos">
+      <field name="name">DAVID</field>
+      <field name="lastname">OSORIO</field>
+      <field name="cedula">0925849586</field>
+    </record>
+    <!-- RUTA -->
+    <record id="ruta01" model="practicabusqueda.ruta">
+      <field name="siglas">SEGU</field>
+      <field name="name">GUAYAQUIL</field>
+    </record>
+    <record id="ruta02" model="practicabusqueda.ruta">
+      <field name="siglas">SEQT</field>
+      <field name="name">QUITO</field>
+    </record>
+    <record id="ruta03" model="practicabusqueda.ruta">
+      <field name="siglas">SEMT</field>
+      <field name="name">MANTA</field>
+    </record>
+    <record id="ruta04" model="practicabusqueda.ruta">
+      <field name="siglas">SESA</field>
+      <field name="name">SALINAS</field>
+    </record>
+    <record id="ruta05" model="practicabusqueda.ruta">
+      <field name="siglas">PLAT. AMISTAD</field>
+      <field name="name">PLAT. AMISTAD</field>
+    </record>
+    <!-- ESCUADRON -->
+    <record id="escuadron01" model="practicabusqueda.escuadron">
+      <field name="siglas">COAVNA</field>
+      <field name="name">COMANDO DE LA AVIACION NAVAL</field>
+    </record>
+    <record id="escuadron02" model="practicabusqueda.escuadron">
+      <field name="siglas">ESCHEL</field>
+      <field name="name">ESCUADRON DE HELICOPTEROS</field>
+    </record>
+    <record id="escuadron03" model="practicabusqueda.escuadron">
+      <field name="siglas">ESCAIN</field>
+      <field name="name">ESCUADRON INSULAR </field>
+    </record>
+    <record id="escuadron04" model="practicabusqueda.escuadron">
+      <field name="siglas">ESCEAM</field>
+      <field name="name">ESCUADRON DE EXPLORACION AEROMARITIMA</field>
+    </record>
+    <!-- TIPO DE AERONAVE -->
+    <record id="tipo_aeroave01" model="practicabusqueda.tipoaeronave">
+      <field name="name">HELICOPTERO</field>
+    </record>
+    <record id="tipo_aeroave02" model="practicabusqueda.tipoaeronave">
+      <field name="name">AVION</field>
+    </record>
+    <record id="tipo_aeroave03" model="practicabusqueda.tipoaeronave">
+      <field name="name">UAV</field>
+    </record>
+   
+  </data>
+</odoo>

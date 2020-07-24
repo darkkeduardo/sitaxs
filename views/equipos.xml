@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="equipos_list">
+      <field name="name">practicabusqueda.equipos</field>
+      <field name="model">practicabusqueda.equipos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" string="Listado de Equipos"/>
+          
+        </tree>
+      </field>
+    </record>
+
+      <!-- model.name form view -->
+    <record id="equipos_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.equipos</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="name" string="Equipos"/>
+              <!-- <field name="aeronave_id"/> -->
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="practicabusqueda_equipos_action_window">
+      <field name="name">Equipos</field>
+      <field name="res_model">practicabusqueda.equipos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="AVIACION NAVAL" id="practicabusqueda.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Equipos" id="practicabusqueda_menu_1_list_equipos" parent="practicabusqueda_mantenimiento_menu_1"
+              action="practicabusqueda_equipos_action_window" sequence="2"/>
+    
+
+  </data>
+</odoo>

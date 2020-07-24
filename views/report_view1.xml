@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <report id="action_report_escuadrones" string="Escuadrones" model="practicabusqueda.escuadron" report_type="qweb-pdf" file="practicabusqueda.report_escuadrones" name="practicabusqueda.report_escuadrones" />
+
+        <template id="report_escuadrones">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="header">
+                        ARMADA DEL ECUADOR / LOGOTIPO
+                    </div>
+                    <div class="page">
+                        <h1>TIPOS DE ESCUADRONES</h1>
+                        <p>Personalizado, de Odoo</p>
+                    </div>
+                    <div class="footer">
+                        <small>Mi footer</small>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

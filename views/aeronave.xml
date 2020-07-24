@@ -1,0 +1,143 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="aeronave_list">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.aeronave</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" string="Matricula"/>
+
+
+        </tree>
+      </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="aeronave_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.aeronave</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <button name="history_open_security_type" type="object" class="oe_stat_button" icon="fa-book">
+            <field name="contador_historico" string="Tipo Seguro" widget="statinfo"/>
+          </button>
+          <sheet>
+
+            <group>
+              <h1>
+                <group>
+                  <field name="name" string="Matricula"/>
+                </group>
+              </h1>
+              <group>
+              </group>
+              <group colspan="2">
+                <notebook>
+                  <page string="Datos de Aeronave">
+                    <group>
+                      <group>
+                        <field name="tipoaeronave_id"/>
+                      </group>
+                      <group>
+                        <field name="escuadron_id"/>
+                      </group>
+                    </group>
+                  </page>
+                  <page string="Mision">
+                    <field name="mision_aeronave_ids">
+                      <tree editable="botton">
+                        <field name="mision_id"/>
+                      </tree>
+                    </field>
+                  </page>
+                  <page string="Equipos">
+                    <field name="equip_adicional_ids"/>
+                  </page>
+                  <page string="Seguro">
+                    <group>
+                      <field name="radiograma_seguro"/>
+                      <field name="tipo_seguro_id"/>
+                      <field name="observacion_seguro"/>
+                    </group>
+                  </page>
+                </notebook>
+                <!-- <field name="escuadron_id"/> -->
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="aeronave_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda.aeronave.form</field>
+      <field name="model">practicabusqueda.aeronave</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+            <button name="delete_line" type="object" string="Limpiar" class="oe_highlight" />
+          </header>
+          <sheet>
+            <group>
+              <field name="name"/>
+
+              <field name="equipos_ids"/>
+
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+
+    <record id="aeronave_view_search" model="ir.ui.view">
+      <field name="name">practicabusqueda.aeronave.form</field>
+      <field name="model">practicabusqueda.aeronave</field>
+      <field name="arch" type="xml">
+        <search string="">
+          <!--buscara por los campos que especifiquemos aqui-->
+          <field name="tipoaeronave_id"/>
+          <!-- <field name="escuadron_id"/> -->
+          <filter name="name" string="HELICOPTEROS" domain="[('tipoaeronave_id', '=', 1)]"/>
+          <filter name="name" string="AVION" domain="[('tipoaeronave_id', '=', 2)]"/>
+          <filter name="name" string="UAV" domain="[('tipoaeronave_id', '=', 3)]"/>
+          <!--permite agrupar  por un criterio-->
+          <group>
+            <filter name="escuadron_id" string="Agrupar Escuadron" context="{'group_by': 'escuadron_id' }" />
+            <filter name="tipo_seguro_id" string="Agrupar Tipo de Seguro" context="{'group_by': 'tipo_seguro_id' }" />
+          </group>
+        </search>
+      </field>
+    </record>
+    
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="practicabusqueda_aeronave_action_window">
+      <field name="name">Aeronaves</field>
+      <field name="res_model">practicabusqueda.aeronave</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="AVIACION NAVAL" id="practicabusqueda.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Aeronave" id="practicabusqueda_menu_1_list_aeronave" parent="practicabusqueda_mantenimiento_menu_1" action="practicabusqueda_aeronave_action_window" sequence="1"/>
+
+  </data>
+</odoo>

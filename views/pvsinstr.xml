@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pvsinstr_list">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.pvsinstr</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="pvsinstr_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda.pvsinstr.form</field>
+      <field name="model">practicabusqueda.pvsinstr</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="name"/>
+              
+
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="practicabusqueda_pvsinstr_action_window">
+      <field name="name">Plan de vuelo instruccion</field>
+      <field name="res_model">practicabusqueda.pvsinstr</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="practicabusqueda" id="practicabusqueda.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Plan de Vuelo instruccion" id="practicabusqueda_menu_1_list_pvsinstr" parent="practicabusqueda_mantenimiento_menu_1" action="practicabusqueda_pvsinstr_action_window" sequence="7"/>
+
+  </data>
+</odoo>

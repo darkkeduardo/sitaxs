@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="parametros_list">
+      <field name="name">practicabusqueda list</field>
+      <field name="model">practicabusqueda.parametros</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="parametros_view_form" model="ir.ui.view">
+      <field name="name">practicabusqueda.parametros.form</field>
+      <field name="model">practicabusqueda.parametros</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="name"/>
+              
+
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="practicabusqueda_parametros_action_window">
+      <field name="name">parametros</field>
+      <field name="res_model">practicabusqueda.parametros</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="practicabusqueda" id="practicabusqueda.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Mantenimiento" id="practicabusqueda_mantenimiento_menu_1" parent="practicabusqueda.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Parametros" id="practicabusqueda_menu_1_list_parametros" parent="practicabusqueda_mantenimiento_menu_1" action="practicabusqueda_parametros_action_window" sequence="4"/>
+
+  </data>
+</odoo>
